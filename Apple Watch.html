@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Apple Watch</title>
+    <style>	   
+    </style>
+</head>
+<body>   
+	<link rel="stylesheet" href="js/jquery.fullpage.css">
+    <link rel="stylesheet" href="css/1.css">
+    <script src="js/jquery-3.2.0.js"></script>  
+    <script src="js/jquery.fullpage.js"></script>
+    <script src="js/TweenMax.js"></script>
+   
+    <div id="full">
+    	<div class='section section1'>
+			<h3>它，终于来了</h3>
+			<p>为了充分发挥体积小巧以及佩戴于手腕的优势，Apple Watch带来全新的科技和互动方式</p>
+			<a href="#">进一步了解</a>
+    	</div>
+    	<div class='section section2'>
+    		<h3>真正与你贴近的个人设备</h3>
+			<a href="#">进一步了解</a>
+    	</div>
+    	<div class='section section3'>
+    		<h3>非同一般的精准计时</h3>
+    		<p>高级手表向来以计时精准为本，Apple Watch更是如此。它同全球标准时间的误差不超过50毫秒。</p>
+    		<p>并且可以对表盘进行个性化设定，使得其更贴近你的生活和日程需要。</p>
+    		<a href="">进一步了解计时</a>
+    	</div>
+    	<div class='section section4'>
+    		<h1>新款表带登场</h1>
+    		<a href="#">进一步了解</a>
+    		<div class='section4_item'>
+    			<div class='item_left'>
+    				<img class='img1' src="img/4.jpg" alt="">
+    				<h3>天作之合。</h3>
+    				<a href="">选购配件</a>
+    			</div>
+    			<div class='item_middle'>
+    				
+    			</div>
+    			<div class='item_right'>
+    				<img class='img2' src="img/5.jpg" alt="">
+    				<h3>Apple Watch 互动式表廊</h3>
+    				<a href="">混搭各款表壳、表带和表盘</a>
+    			</div>		
+    		</div>
+    	</div>
+
+    </div>
+    <script>
+    // console.log(move('.section1 h1'))
+		$(document).ready(function() {
+            $('#full').fullpage({
+            	verticalCentered:false,
+                navigation:true,
+                afterLoad:function(link,index){
+                	switch(index){
+                		case 1:
+                			TweenMax.to('.section1 h3',0.5,{scale:1.5});
+                			TweenMax.to('.section1 p',1,{marginTop:5});
+                			break;
+                		case 2:
+                			TweenMax.to('.section2 h3',0.5,{scale:0.7});
+                			break;
+                		case 3:
+                			TweenMax.to('.section3 h3',0.4,{marginRight:0});
+                			TweenMax.to('.section3 p',0.4,{marginRight:0});
+                			break;
+                		case 4:
+                			TweenMax.to('.section4 .img1',1,{scale:1.05});
+                			TweenMax.to('.section4 .img2',1,{scale:1.05});
+                			break;
+                		default:
+                			break;
+                	}
+                },
+                onLeave:function(link,index){
+                	switch(index){
+                		case 1:
+                			TweenMax.to('.section1 h3',0.5,{scale:1});
+                			TweenMax.to('.section1 p',1,{marginTop:800});
+                			break;
+                		case 2:
+                			TweenMax.to('.section2 h3',0.5,{scale:1});
+                			break;
+                		case 3:
+                			TweenMax.to('.section3 h3',0.4,{marginRight:800});
+                			TweenMax.to('.section3 p',0.4,{marginRight:-800});
+                			break;
+                		case 4:   
+                            TweenMax.to('.section4 .img1',1,{scale:1});
+                            TweenMax.to('.section4 .img2',1,{scale:1});          
+                			break;
+                		default:
+                			break;
+                	}
+                }
+            });
+        });
+    </script>
+</body>
+</html>
